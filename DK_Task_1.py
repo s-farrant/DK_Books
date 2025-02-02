@@ -29,6 +29,7 @@ if book_data_req.status_code in (200, '200'):
         categories = book_data_temp['categories']
         if "Hobbies" in categories or "Nonfiction" in categories:
 
+
             # Checking release year and increasing price by 20%
 
             publication_date = book_data_temp['publication_date']
@@ -37,7 +38,8 @@ if book_data_req.status_code in (200, '200'):
             if release_year > 2020:
                 new_price = book_data_temp['price']*1.2
                 book_data_temp.update({'price': new_price})
-                nonfiction_hobbies_books.append(book_data_temp)
+            
+            nonfiction_hobbies_books.append(book_data_temp)
 
 
     df = pd.DataFrame(nonfiction_hobbies_books)
